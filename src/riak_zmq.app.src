@@ -1,0 +1,17 @@
+{application, riak_zmq,
+ [
+  {description, "Riak postcommit hook that publishes to ZeroMQ. Based on https://gist.github.com/1165753"},
+  {vsn, "1"},
+  {registered, [riak_zmq_publisher]},
+  {applications, [
+                  kernel,
+                  stdlib,
+                  riak_core,
+                  riak_kv,
+                  zmq                  
+                 ]},
+  {mod, { riak_zmq_app, []}},
+  {env, [
+         {zmq_uri, "tcp://127.0.0.1:5500"}
+        ]}
+ ]}.
